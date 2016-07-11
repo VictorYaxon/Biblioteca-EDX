@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "300203772958",
+    "firebase_url": "https://fir-60215.firebaseio.com",
+    "project_id": "fir-60215",
+    "storage_bucket": "fir-60215.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:300203772958:android:6f7172a0bb6b2a9b",
+        "android_client_info": {
+          "package_name": "org.victoryaxon.firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "300203772958-ejrlt02auh1aq67r2kq79033frevfvus.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6-K85JlhxTT76pCfdDlkgBW63SB_e9lE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
