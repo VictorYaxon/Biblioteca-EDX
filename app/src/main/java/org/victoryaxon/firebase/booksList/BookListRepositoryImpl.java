@@ -24,7 +24,7 @@ public class BookListRepositoryImpl implements BookListRepository {
 
     @Override
     public void signOff() {
-        helper.signOff();
+        //helper.signOff();
     }
 
     @Override
@@ -35,8 +35,8 @@ public class BookListRepositoryImpl implements BookListRepository {
     @Override
     public void removeBook(String book) {
         String currentUserEmail = helper.getAuthUserEmail();
-        helper.getOneContactReference(currentUserEmail, book).removeValue();
-        helper.getOneContactReference(book, currentUserEmail).removeValue();
+        //helper.getOneContactReference(currentUserEmail, book).removeValue();
+        //helper.getOneContactReference(book, currentUserEmail).removeValue();
     }
 
     @Override

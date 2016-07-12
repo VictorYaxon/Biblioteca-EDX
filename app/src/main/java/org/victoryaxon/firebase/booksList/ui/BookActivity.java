@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
 import org.victoryaxon.firebase.R;
+import org.victoryaxon.firebase.addBook.ui.AddBookFragment;
 import org.victoryaxon.firebase.booksList.BookListPresenter;
 import org.victoryaxon.firebase.booksList.BookListPresenterImpl;
 import org.victoryaxon.firebase.booksList.ui.adapters.BookListAdapter;
@@ -73,7 +74,7 @@ public class BookActivity extends AppCompatActivity implements BookListView, OnI
 
     @OnClick(R.id.fab)
     public void addBook(){
-
+        new AddBookFragment().show(getSupportFragmentManager(),getString(R.string.addcontact_message_title));
     }
 
     @Override
