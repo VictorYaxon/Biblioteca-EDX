@@ -74,7 +74,8 @@ public class BookActivity extends AppCompatActivity implements BookListView, OnI
 
     @OnClick(R.id.fab)
     public void addBook(){
-        new AddBookFragment().show(getSupportFragmentManager(),getString(R.string.addcontact_message_title));
+        AddBookFragment frag = new AddBookFragment();
+        frag.show(getSupportFragmentManager(), "");
     }
 
     @Override

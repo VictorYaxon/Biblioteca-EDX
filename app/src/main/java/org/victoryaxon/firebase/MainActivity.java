@@ -1,18 +1,21 @@
 package org.victoryaxon.firebase;
 
+import android.app.Application;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.firebase.client.Firebase;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class MainActivity extends AppCompatActivity {
-
+public class MainActivity extends Application{
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onCreate() {
+        super.onCreate();
         setupFirebase();
     }
-    private void setupFirebase(){
-        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+
+    private void setupFirebase() {
+        Firebase.setAndroidContext(this);
+        Firebase.getDefaultConfig().setPersistenceEnabled(true);
     }
 }

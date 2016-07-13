@@ -58,7 +58,7 @@ public class FirebaseHelper {
         return userReference;
     }
 
-    public DatabaseReference getBooksReferebces(String titulo, String autor, String sinopsis){
+    public DatabaseReference getBooksReferebces(String titulo){
         DatabaseReference userReference = null;
             userReference = dataReference.getRoot().child(USERS_PATH);
         return userReference;

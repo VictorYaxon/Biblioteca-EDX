@@ -4,23 +4,19 @@ package org.victoryaxon.firebase.addBook.ui;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.preference.DialogPreference;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import org.victoryaxon.firebase.R;
-import org.victoryaxon.firebase.addBook.AddBookFragmentImpl;
 import org.victoryaxon.firebase.addBook.AddBookPresenter;
+import org.victoryaxon.firebase.addBook.AddBookPresenterImpl;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -39,10 +35,11 @@ public class AddBookFragment extends DialogFragment implements AddBookView, Dial
     EditText editTxtSinopsis;
     @Bind(R.id.progressBar)
     ProgressBar progressBar;
-    AddBookPresenter presenter;
+
+    private AddBookPresenter presenter;
 
     public AddBookFragment() {
-        presenter = new AddBookFragmentImpl(this);
+        presenter = new AddBookPresenterImpl(this);
     }
 
 
@@ -118,6 +115,12 @@ public class AddBookFragment extends DialogFragment implements AddBookView, Dial
     }
 
     @Override
+    public void onDestroy() {
+        super.onDestroy();
+        presenter.onDestroy();
+    }
+
+    @Override
     public void onShow(DialogInterface dialogInterface) {
        final AlertDialog dialog = (AlertDialog) getDialog();
         if (dialog != null) {
@@ -127,7 +130,13 @@ public class AddBookFragment extends DialogFragment implements AddBookView, Dial
             positiveButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    presenter.addBook(editTxtTitulo.getText().toString(),editTxtAutor.getText().toString(),editTxtSinopsis.getText().toString());
+                    System.out.println("----- Boton agregar presionado -----");
+                    presenter.addBook(editTxtTitulo.getText().toString());
+                    /*if (editTxtTitulo.length()==0){
+                        System.out.println("----- Vacio -----");
+                    }else {
+                        System.out.println("----- Esto es lo de adentro -----"+editTxtTitulo.getText().toString());
+                    }*/
 
                 }
             });
@@ -142,9 +151,5 @@ public class AddBookFragment extends DialogFragment implements AddBookView, Dial
         presenter.onShow();
     }
 
-    @Override
-    public void onDestroy() {
-        presenter.onDestroy();
-        super.onDestroy();
-    }
+
 }

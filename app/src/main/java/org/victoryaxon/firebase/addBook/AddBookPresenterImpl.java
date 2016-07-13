@@ -1,6 +1,8 @@
 package org.victoryaxon.firebase.addBook;
 
+import org.greenrobot.eventbus.Subscribe;
 import org.victoryaxon.firebase.addBook.evens.AddBookEvent;
+import org.victoryaxon.firebase.addBook.ui.AddBookFragment;
 import org.victoryaxon.firebase.addBook.ui.AddBookView;
 import org.victoryaxon.firebase.lib.EventBus;
 import org.victoryaxon.firebase.lib.GreenRobotEventBus;
@@ -13,10 +15,10 @@ public class AddBookPresenterImpl implements AddBookPresenter {
     private AddBookView view;
     private AddBookInteractor interactor;
 
-    public AddBookPresenterImpl(EventBus eventBus, AddBookView view, AddBookInteractor interactor) {
+    public AddBookPresenterImpl(AddBookView view) {
         this.eventBus = GreenRobotEventBus.getInstance();
         this.view = view;
-        this.interactor = new AddBookInteractorImpl();
+        this.interactor = new  AddBookInteractorImpl();
     }
 
     @Override
@@ -30,15 +32,17 @@ public class AddBookPresenterImpl implements AddBookPresenter {
         eventBus.unregister(this);
     }
     @Override
-    public void addBook(String titulo, String autor, String sinopsis) {
+    public void addBook(String titulo) {
         if (view != null){
             view.hideInput();
             view.showProgress();
+            System.out.println("Vamos por aqui y ya paso");
         }
-        interactor.execute(titulo,autor,sinopsis);
+        interactor.execute(titulo);
     }
 
     @Override
+    @Subscribe
     public void onEventMainThread(AddBookEvent event) {
         if (view != null){
             view.hideProgress();
