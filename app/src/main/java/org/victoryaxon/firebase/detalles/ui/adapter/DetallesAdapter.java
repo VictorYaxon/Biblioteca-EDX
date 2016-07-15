@@ -48,7 +48,7 @@ public class DetallesAdapter extends RecyclerView.Adapter<DetallesAdapter.ViewHo
         holder.txtSinopsis.setText(sinopsis);
 
         int gravity = Gravity.VERTICAL_GRAVITY_MASK;
-        
+
     }
     public void add(BookDetalle titulo) {
         if (!detallesList.contains(titulo)){

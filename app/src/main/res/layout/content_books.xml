@@ -21,7 +21,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Autor         "
-                android:textColor="@color/black_overlay"
+                android:textColor="@android:color/white"
                 android:id="@+id/textdView" />
         </RelativeLayout>
 
@@ -52,7 +52,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Titulo        "
-                android:textColor="@color/black_overlay"
+                android:textColor="@android:color/white"
                 android:id="@+id/textView" />
         </RelativeLayout>
 

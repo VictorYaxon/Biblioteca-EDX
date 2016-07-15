@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.victoryaxon.firebase">
+    package="org.victoryaxon.firebase" >
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -10,20 +10,31 @@
         android:icon="@mipmap/icono"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
         <activity
-            android:name=".login.ui.LoginActivity"
+            android:name=".pantalla.pantallaInicio"
+            android:label="Biblioteca"
             android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".booksList.ui.BookActivity"
-            android:label="Libros"
-             />
-        <activity android:name=".detalles.ui.DetallesActivity" android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+        <activity
+            android:name=".login.ui.LoginActivity"
+            android:noHistory="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.PRINCIPAL" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".booksList.ui.BookActivity"
+            android:label="Libros" />
+        <activity
+            android:name=".detalles.ui.DetallesActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
     </application>
 
 </manifest>
