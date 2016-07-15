@@ -32,13 +32,13 @@ public class AddBookPresenterImpl implements AddBookPresenter {
         eventBus.unregister(this);
     }
     @Override
-    public void addBook(String titulo) {
+    public void addBook(String titulo,String autor,String sinopsis) {
         if (view != null){
             view.hideInput();
             view.showProgress();
             System.out.println("Vamos por aqui y ya paso");
         }
-        interactor.execute(titulo);
+        interactor.execute(titulo,autor,sinopsis);
     }
 
     @Override

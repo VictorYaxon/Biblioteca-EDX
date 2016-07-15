@@ -1,11 +1,11 @@
 package org.victoryaxon.firebase.booksList.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.Toast;
 
 import org.victoryaxon.firebase.R;
 import org.victoryaxon.firebase.addBook.ui.AddBookFragment;
@@ -13,10 +13,10 @@ import org.victoryaxon.firebase.booksList.BookListPresenter;
 import org.victoryaxon.firebase.booksList.BookListPresenterImpl;
 import org.victoryaxon.firebase.booksList.ui.adapters.BookListAdapter;
 import org.victoryaxon.firebase.booksList.ui.adapters.OnItemClickListener;
+import org.victoryaxon.firebase.detalles.ui.DetallesActivity;
 import org.victoryaxon.firebase.entities.Book;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -90,7 +90,9 @@ public class BookActivity extends AppCompatActivity implements BookListView, OnI
 
     @Override
     public void onItemClick(Book book) {
-        Toast.makeText(this,book.getTitulo(),Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, DetallesActivity.class);
+        intent.putExtra(DetallesActivity.BOOK_KEY,book.getTitulo());
+        startActivity(intent);
     }
 
     @Override

@@ -12,7 +12,7 @@ public class AddBookInteractorImpl implements AddBookInteractor {
     }
 
     @Override
-    public void execute(String titulo) {
-        addBookRepository.addBook(titulo);
+    public void execute(String titulo,String autor,String sinopsis) {
+        addBookRepository.addBook(titulo,autor,sinopsis);
     }
 }

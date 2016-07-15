@@ -57,7 +57,11 @@ public class FirebaseHelper {
         }
         return userReference;
     }
-
+    public DatabaseReference getDetalles(String titulo){
+        DatabaseReference userReference = null;
+            userReference = dataReference.getRoot().child(CONTACTS_PATH).child(titulo);
+        return userReference;
+    }
     public DatabaseReference getBooksReferebces(String titulo){
         DatabaseReference userReference = null;
             userReference = dataReference.getRoot().child(USERS_PATH);
@@ -86,7 +90,9 @@ public class FirebaseHelper {
     public DatabaseReference getContactsReference(){
         return getBooksReference().child(CONTACTS_PATH);
     }
-
+    public DatabaseReference getContactsReferences(String titulo){
+        return getBooksReference().child(titulo);
+    }
     public DatabaseReference getMyContactsReference(){
         return getContactsReference();
         //return getContactsReference(getAuthUserEmail());
@@ -96,16 +102,9 @@ public class FirebaseHelper {
         return getUserReference(mainEmail).child(CONTACTS_PATH);
     }
 
-    /*public DatabaseReference getChatsReference(String receiver){
-        String keySender = getAuthUserEmail().replace(".","_");
-        String keyReceiver = receiver.replace(".","_");
-
-        String keyChat = keySender + SEPARATOR + keyReceiver;
-        if (keySender.compareTo(keyReceiver) > 0) {
-            keyChat = keyReceiver + SEPARATOR + keySender;
-        }
-        return dataReference.getRoot().child(CHATS_PATH).child(keyChat);
-    }*/
+    public DatabaseReference getChatsReference(String receiver){
+        return dataReference.getRoot().child(CONTACTS_PATH);
+    }
 
     public void changeUserConnectionStatus(boolean online) {
         if (getMyUserReference() != null) {

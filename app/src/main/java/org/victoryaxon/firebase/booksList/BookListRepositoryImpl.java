@@ -52,7 +52,9 @@ public class BookListRepositoryImpl implements BookListRepository {
                 @Override
                 public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                     String titulo = dataSnapshot.getKey();
-                    Book book = new Book(titulo);
+                    String autor = dataSnapshot.getKey();
+                    String sinopsis = dataSnapshot.getKey();
+                    Book book = new Book(titulo,autor,sinopsis);
                     postEvent(BookListEvent.onBookAdd, book);
                 }
 
@@ -64,7 +66,9 @@ public class BookListRepositoryImpl implements BookListRepository {
                 @Override
                 public void onChildRemoved(DataSnapshot dataSnapshot) {
                     String titulo = dataSnapshot.getKey();
-                    Book book = new Book(titulo);
+                    String autor = dataSnapshot.getKey();
+                    String sinopsis = dataSnapshot.getKey();
+                    Book book = new Book(titulo,autor,sinopsis);
                     postEvent(BookListEvent.onBookRemoved, book);
                 }
 

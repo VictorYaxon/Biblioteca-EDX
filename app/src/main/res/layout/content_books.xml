@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="313dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="60dp"
+        android:layout_gravity="center_horizontal|top">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+           >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Autor         "
+                android:textColor="@color/black_overlay"
+                android:id="@+id/textdView" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Medium Text"
+            android:padding="10dp"
+            android:textColor="@android:color/white"
+            android:background="@color/colorPrimary"
+            android:id="@+id/txtAutor"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="313dp"
+        android:layout_height="57dp"
+        android:layout_gravity="center_horizontal|top">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/relativeLayout">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Titulo        "
+                android:textColor="@color/black_overlay"
+                android:id="@+id/textView" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Medium Text"
+            android:padding="10dp"
+            android:textColor="@android:color/white"
+            android:background="@color/colorPrimary"
+            android:id="@+id/txtMessage"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="311dp"
+        android:layout_height="367dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/txtSinopsis"
+        android:layout_gravity="center_horizontal|bottom" />
+</FrameLayout>
+

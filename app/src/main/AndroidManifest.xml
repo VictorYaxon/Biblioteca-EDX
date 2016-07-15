@@ -20,9 +20,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".booksList.ui.BookActivity">
-
-        </activity>
+        <activity android:name=".booksList.ui.BookActivity"
+            android:label="Libros"
+             />
+        <activity android:name=".detalles.ui.DetallesActivity" android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
     </application>
 
 </manifest>

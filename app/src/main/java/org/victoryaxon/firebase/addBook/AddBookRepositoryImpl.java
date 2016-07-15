@@ -30,11 +30,11 @@ public class AddBookRepositoryImpl implements AddBookRepository {
     }
 
     @Override
-    public void addBook(final String titulo) {
+    public void addBook(final String titulo,String autor,String sinopsis) {
         DatabaseReference mDatabase =helper.getDataReference();
 
         String key = mDatabase.child("books").push().getKey();
-        Book post = new Book(titulo);
+        Book post = new Book(titulo,autor,sinopsis);
         Map<String, Object> postValues = post.toMap();
 
         Map<String, Object> childUpdates = new HashMap<>();

@@ -130,14 +130,7 @@ public class AddBookFragment extends DialogFragment implements AddBookView, Dial
             positiveButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    System.out.println("----- Boton agregar presionado -----");
-                    presenter.addBook(editTxtTitulo.getText().toString());
-                    /*if (editTxtTitulo.length()==0){
-                        System.out.println("----- Vacio -----");
-                    }else {
-                        System.out.println("----- Esto es lo de adentro -----"+editTxtTitulo.getText().toString());
-                    }*/
-
+                    validacion();
                 }
             });
 
@@ -151,5 +144,24 @@ public class AddBookFragment extends DialogFragment implements AddBookView, Dial
         presenter.onShow();
     }
 
+    public void validacion(){
+        System.out.println("----- Boton agregar presionado -----");
+        if (editTxtTitulo.length()==0) {
+            editTxtTitulo.setText("");
+            editTxtTitulo.setError("Ingrese el titulo del libro");
+        }
+        if (editTxtAutor.length()==0) {
+            editTxtAutor.setText("");
+            editTxtAutor.setError("Ingrese un autor");
+        }
+        if (editTxtSinopsis.length()==0) {
+            editTxtSinopsis.setText("");
+            editTxtSinopsis.setError("Ingrese una sinopsis del libro");
+        }
+        if (editTxtSinopsis.length()==0||editTxtAutor.length()==0||editTxtSinopsis.length()==0){
 
+        }else {
+            presenter.addBook(editTxtTitulo.getText().toString(),editTxtAutor.getText().toString(),editTxtSinopsis.getText().toString());
+        }
+    }
 }

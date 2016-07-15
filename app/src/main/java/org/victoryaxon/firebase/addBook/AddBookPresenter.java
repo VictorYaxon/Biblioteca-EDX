@@ -9,6 +9,6 @@ public interface AddBookPresenter {
     void onShow();
     void onDestroy();
 
-    void addBook(String titulo);
+    void addBook(String titulo,String autor,String sinopsis);
     void onEventMainThread(AddBookEvent event);
 }
