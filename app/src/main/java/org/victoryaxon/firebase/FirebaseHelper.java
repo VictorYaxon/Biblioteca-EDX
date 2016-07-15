@@ -115,8 +115,11 @@ public class FirebaseHelper {
             //notifyContactsOfConnectionChange(online);
         }
     }
+    public void signOff(){
+        notifyContactsOfConnectionChange(true);
+    }
 
-    public void notifyContactsOfConnectionChange(final boolean online, final boolean signoff) {
+    public void notifyContactsOfConnectionChange(final boolean signoff) {
         getMyContactsReference().addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
@@ -134,11 +137,4 @@ public class FirebaseHelper {
         });
     }
 
-    public void notifyContactsOfConnectionChange(boolean online) {
-        notifyContactsOfConnectionChange(online, false);
-    }
-
-    public void signOff(){
-        notifyContactsOfConnectionChange(User.OFFLINE, true);
-    }
 }

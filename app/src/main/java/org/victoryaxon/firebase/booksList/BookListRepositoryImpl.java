@@ -24,7 +24,7 @@ public class BookListRepositoryImpl implements BookListRepository {
 
     @Override
     public void signOff() {
-        //helper.signOff();
+        helper.signOff();
     }
 
     @Override
