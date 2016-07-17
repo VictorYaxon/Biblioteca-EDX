@@ -11,6 +11,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/FACEBOOK_APP_ID" />
         <activity
             android:name=".pantalla.pantallaInicio"
             android:label="Biblioteca"
@@ -47,8 +50,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".login.ui.LoginActivity"
             />
-
         </activity>
+        <provider android:authorities="@string/FACEBOOK_PROVIDER_AUTH"
+            android:name="com.facebook.FacebookContentProvider"
+            android:exported="true"/>
     </application>
 
 </manifest>

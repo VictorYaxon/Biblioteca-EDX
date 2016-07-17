@@ -10,8 +10,6 @@
         android:src="@mipmap/ic_book"
         android:layout_width="@dimen/contact_image_size"
         android:layout_height="@dimen/contact_image_size"
-        app:civ_border_width="1dp"
-        app:civ_border_color="#FF000000"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
