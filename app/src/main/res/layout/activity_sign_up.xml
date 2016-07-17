@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".signup.ui.SignUpActivity"
+    tools:context=".login.ui.LoginActivity"
     android:background="@drawable/biblioteca">
 
     <android.support.design.widget.TextInputLayout
@@ -17,13 +17,14 @@
         android:layout_height="wrap_content"
         android:textColorHint="#ffffff"
         android:layout_above="@+id/wrapperPassword"
-        xmlns:app = "http://schemas.android.com/apk/res-auto"
-        app:hintTextAppearance = "@style/TextAppearance.AppCompat">
+        xmlns:app = "http://schemas.android.com/apk/res-auto">
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/login.message.email"
+            android:textColorHint="#ffffff"
+            android:textColor="#ffffff"
             android:inputType="textEmailAddress"
             android:id="@+id/editTxtEmail" />
     </android.support.design.widget.TextInputLayout>
@@ -36,6 +37,8 @@
         android:textColorHint="#ffffff">
 
         <EditText
+            android:textColorHint="#ffffff"
+            android:textColor="#ffffff"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/login.message.password"
@@ -49,12 +52,6 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:id="@+id/layoutButtons">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/login.message.signin"
-            android:id="@+id/btnSignin" />
 
         <Button
             android:layout_width="wrap_content"

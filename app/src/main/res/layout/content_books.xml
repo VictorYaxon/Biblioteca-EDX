@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="313dp"
-        android:layout_height="55dp"
+        android:layout_height="83dp"
         android:layout_marginTop="60dp"
         android:layout_gravity="center_horizontal|top">
 
@@ -15,14 +15,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-           >
+            >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Autor         "
-                android:textColor="@android:color/white"
-                android:id="@+id/textdView" />
+                android:id="@+id/textdView"
+                android:layout_marginTop="40dp" />
         </RelativeLayout>
 
         <TextView
@@ -32,14 +32,16 @@
             android:text="Medium Text"
             android:padding="10dp"
             android:textColor="@android:color/white"
-            android:background="@color/colorPrimary"
-            android:id="@+id/txtAutor"/>
+            android:background="@color/accent_material_light"
+            android:id="@+id/txtAutor"
+            android:layout_marginTop="30dp" />
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="313dp"
-        android:layout_height="57dp"
+        android:layout_height="83dp"
+        android:id="@+id/contenedor"
         android:layout_gravity="center_horizontal|top">
 
         <RelativeLayout
@@ -52,8 +54,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Titulo        "
-                android:textColor="@android:color/white"
-                android:id="@+id/textView" />
+                android:id="@+id/textView"
+                android:layout_marginTop="30dp" />
         </RelativeLayout>
 
         <TextView
@@ -63,15 +65,39 @@
             android:text="Medium Text"
             android:padding="10dp"
             android:textColor="@android:color/white"
-            android:background="@color/colorPrimary"
-            android:id="@+id/txtMessage"/>
+            android:background="@color/accent_material_light"
+            android:id="@+id/txtMessage"
+            android:layout_marginTop="20dp" />
     </LinearLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="240dp"
+
+        android:contextClickable="false"
+        android:gravity="start|top"
+        android:layout_gravity="right">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/txtSinopsis"
+            android:layout_gravity="center_horizontal|bottom"
+            android:clickable="false"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
     <TextView
-        android:layout_width="311dp"
-        android:layout_height="367dp"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/txtSinopsis"
-        android:layout_gravity="center_horizontal|bottom" />
+        android:layout_width="93dp"
+        android:layout_height="wrap_content"
+        android:text="Sinopsis"
+        android:id="@+id/textView2"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="170dp"
+        android:textSize="20dp"
+        android:textStyle="bold|normal|italic" />
 </FrameLayout>
 

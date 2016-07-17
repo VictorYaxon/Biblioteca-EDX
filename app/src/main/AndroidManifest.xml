@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.victoryaxon.firebase" >
+    package="org.victoryaxon.firebase">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -10,32 +10,45 @@
         android:icon="@mipmap/icono"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
-                    <activity
-                        android:name=".pantalla.pantallaInicio"
-                        android:label="Biblioteca"
-                        android:noHistory="true">
-                        <intent-filter>
-                            <action android:name="android.intent.action.MAIN" />
-                            <category android:name="android.intent.category.LAUNCHER" />
-                        </intent-filter>
-                    </activity>
-            <activity
-                android:name=".login.ui.LoginActivity"
-                android:noHistory="true" >
-                <intent-filter>
-                    <action android:name="android.intent.action.PRINCIPAL" />
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".pantalla.pantallaInicio"
+            android:label="Biblioteca"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-                    <category android:name="android.intent.category.DEFAULT" />
-                </intent-filter>
-            </activity>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".login.ui.LoginActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.PRINCIPAL" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".booksList.ui.BookActivity"
             android:label="Libros"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".detalles.ui.DetallesActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".booksList.ui.BookActivity"
+            />
+        </activity>
+        <activity android:name=".signup.ui.SignUpActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".login.ui.LoginActivity"
+            />
+
+        </activity>
     </application>
 
 </manifest>

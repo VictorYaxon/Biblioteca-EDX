@@ -28,8 +28,6 @@ public class DetallesActivity extends AppCompatActivity implements DetallesView
     CircleImageView imgAvatar;
     @Bind(R.id.txtUser)
     TextView txtUser;
-    @Bind(R.id.txtStatus)
-    TextView txtStatus;
     @Bind(R.id.toolbar)
     Toolbar toolbar;
     @Bind(R.id.messageRecyclerView)

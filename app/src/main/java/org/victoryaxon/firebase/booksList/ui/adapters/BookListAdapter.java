@@ -85,8 +85,6 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder {
         @Bind(R.id.txtUser)
         TextView txtUser;
-        @Bind(R.id.txtStatus)
-        TextView txtStatus;
 
         private View view;
 

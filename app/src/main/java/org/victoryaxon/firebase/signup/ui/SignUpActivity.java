@@ -1,9 +1,9 @@
-package org.victoryaxon.firebase.login.ui;
+package org.victoryaxon.firebase.signup.ui;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,54 +14,42 @@ import org.victoryaxon.firebase.R;
 import org.victoryaxon.firebase.booksList.ui.BookActivity;
 import org.victoryaxon.firebase.login.LoginPresenter;
 import org.victoryaxon.firebase.login.LoginPresenterImpl;
-import org.victoryaxon.firebase.signup.ui.SignUpActivity;
+import org.victoryaxon.firebase.login.ui.LoginView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+public class SignUpActivity extends AppCompatActivity implements LoginView{
 
-public class LoginActivity extends AppCompatActivity
-                           implements LoginView {
-    @Bind(R.id.btnSignin)           Button btnSignIn;
     @Bind(R.id.btnSignup)           Button btnSignUp;
-    @Bind(R.id.editTxtEmail)        EditText inputEmail;
+    @Bind(R.id.editTxtEmail)
+    EditText inputEmail;
     @Bind(R.id.editTxtPassword)     EditText inputPassword;
-    @Bind(R.id.progressBar)         ProgressBar progressBar;
-    @Bind(R.id.layoutMainContainer) RelativeLayout container;
+    @Bind(R.id.progressBar)
+    ProgressBar progressBar;
+    @Bind(R.id.layoutMainContainer)
+    RelativeLayout container;
 
     private LoginPresenter loginPresenter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_sign_up);
         ButterKnife.bind(this);
+        setTitle(R.string.sign_message_signup);
 
         loginPresenter = new LoginPresenterImpl(this);
         loginPresenter.onCreate();
-        loginPresenter.checkForAuthenticatedUser();
     }
+
 
     @Override
     protected void onDestroy() {
         loginPresenter.onDestroy();
         super.onDestroy();
-    }
-
-    @Override
-    @OnClick(R.id.btnSignup)
-    public void handleSignUp() {
-        startActivity(new Intent(this, SignUpActivity.class));
-        /*loginPresenter.registerNewUser(inputEmail.getText().toString(),
-                inputPassword.getText().toString());*/
-    }
-
-    @Override
-    @OnClick(R.id.btnSignin)
-    public void handleSignIn() {
-        loginPresenter.validateLogin(inputEmail.getText().toString(),
-                inputPassword.getText().toString());
     }
 
     @Override
@@ -85,6 +73,29 @@ public class LoginActivity extends AppCompatActivity
     }
 
     @Override
+    @OnClick(R.id.btnSignup)
+    public void handleSignUp() {
+        if (inputEmail.length()==0 || inputPassword.getText().length()==0) {
+            inputPassword.setText("");
+            String msgError = "Llene los campos";
+            inputPassword.setError(msgError);
+        }else{
+            loginPresenter.registerNewUser(inputEmail.getText().toString(),
+                    inputPassword.getText().toString());
+        }
+    }
+
+    @Override
+    public void handleSignIn() {
+        throw new UnsupportedOperationException("Operation is not valid in sign");
+    }
+
+    @Override
+    public void navigateToMainScreen() {
+        startActivity(new Intent(this, BookActivity.class));
+    }
+
+    @Override
     public void loginError(String error) {
         inputPassword.setText("");
         String msgError = String.format(getString(R.string.login_error_message_signin), error);
@@ -92,8 +103,8 @@ public class LoginActivity extends AppCompatActivity
     }
 
     @Override
-    public void navigateToMainScreen() {
-        startActivity(new Intent(this, BookActivity.class));
+    public void newUserSuccess() {
+        Snackbar.make(container, R.string.login_notice_message_useradded, Snackbar.LENGTH_SHORT).show();
     }
 
     @Override
@@ -103,13 +114,7 @@ public class LoginActivity extends AppCompatActivity
         inputPassword.setError(msgError);
     }
 
-    @Override
-    public void newUserSuccess() {
-        Snackbar.make(container, R.string.login_notice_message_useradded, Snackbar.LENGTH_SHORT).show();
-    }
-
     private void setInputs(boolean enabled){
-        btnSignIn.setEnabled(true);
         btnSignUp.setEnabled(true);
         inputEmail.setEnabled(true);
         inputPassword.setEnabled(true);

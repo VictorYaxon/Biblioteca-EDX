@@ -1,10 +1,5 @@
 package org.victoryaxon.firebase.addBook;
-
-import com.firebase.client.Firebase;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.ValueEventListener;
 
 import org.victoryaxon.firebase.FirebaseHelper;
 import org.victoryaxon.firebase.addBook.evens.AddBookEvent;
@@ -19,7 +14,6 @@ import java.util.Map;
  * Created by VictorYaxon on 11/07/2016.
  */
 public class AddBookRepositoryImpl implements AddBookRepository {
-
     EventBus eventBus;
     FirebaseHelper helper;
 
