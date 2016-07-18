@@ -52,6 +52,7 @@ public class DetallesActivity extends AppCompatActivity implements DetallesView
         presenter.onCreate();
         setupToolbar(getIntent());
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private void setupAdapter() {

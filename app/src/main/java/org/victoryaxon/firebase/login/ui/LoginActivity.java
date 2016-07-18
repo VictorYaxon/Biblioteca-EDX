@@ -132,7 +132,9 @@ public class LoginActivity extends AppCompatActivity
 
     @Override
     public void navigateToMainScreen() {
-        startActivity(new Intent(this, BookActivity.class));
+        Intent intent = new Intent(this, BookActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 
     @Override
@@ -148,9 +150,9 @@ public class LoginActivity extends AppCompatActivity
     }
 
     private void setInputs(boolean enabled) {
-        btnSignIn.setEnabled(true);
-        btnSignUp.setEnabled(true);
-        inputEmail.setEnabled(true);
-        inputPassword.setEnabled(true);
+        btnSignIn.setEnabled(enabled);
+        btnSignUp.setEnabled(enabled);
+        inputEmail.setEnabled(enabled);
+        inputPassword.setEnabled(enabled);
     }
 }

@@ -1,7 +1,7 @@
 package org.victoryaxon.firebase.login;
 
 /**
- * Created by ykro.
+ * Created by VictorYaxon.
  */
 public interface LoginInteractor {
     void checkAlreadyAuthenticated();

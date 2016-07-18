@@ -1,7 +1,7 @@
 package org.victoryaxon.firebase.login.events;
 
 /**
- * Created by ykro.
+ * Created by VictorYaxon.
  */
 public class LoginEvent {
     public final static int onSignInError = 0;

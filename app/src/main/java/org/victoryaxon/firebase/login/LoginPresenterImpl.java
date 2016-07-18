@@ -8,7 +8,7 @@ import org.victoryaxon.firebase.login.ui.LoginView;
 
 
 /**
- * Created by ykro.
+ * Created by VictorYaxon.
  */
 public class LoginPresenterImpl implements LoginPresenter {
     EventBus eventBus;

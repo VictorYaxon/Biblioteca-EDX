@@ -1,7 +1,7 @@
 package org.victoryaxon.firebase.lib;
 
 /**
- * Created by ykro.
+ * Created by VictorYaxon.
  */
 public interface EventBus {
     void register(Object subscriber);

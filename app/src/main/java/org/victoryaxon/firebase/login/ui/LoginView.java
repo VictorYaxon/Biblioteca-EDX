@@ -1,7 +1,7 @@
 package org.victoryaxon.firebase.login.ui;
 
 /**
- * Created by ykro.
+ * Created by VictorYaxon.
  */
 public interface LoginView {
     void enableInputs();

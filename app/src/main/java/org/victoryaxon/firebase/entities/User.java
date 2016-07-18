@@ -3,7 +3,7 @@ package org.victoryaxon.firebase.entities;
 import java.util.Map;
 
 /**
- * Created by ykro.
+ * Created by VictorYaxon.
  */
 public class User {
     String email;

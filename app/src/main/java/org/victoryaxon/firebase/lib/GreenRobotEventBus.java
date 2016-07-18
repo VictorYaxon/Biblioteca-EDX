@@ -1,7 +1,7 @@
 package org.victoryaxon.firebase.lib;
 
 /**
- * Created by ykro.
+ * Created by VictorYaxon.
  */
 public class GreenRobotEventBus implements EventBus {
     org.greenrobot.eventbus.EventBus eventBus;

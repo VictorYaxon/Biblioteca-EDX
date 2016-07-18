@@ -4,7 +4,7 @@ package org.victoryaxon.firebase.login;
 import org.victoryaxon.firebase.login.events.LoginEvent;
 
 /**
- * Created by ykro.
+ * Created by VictorYaxon.
  */
 public interface LoginPresenter {
     void onCreate();

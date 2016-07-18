@@ -18,7 +18,7 @@ import org.victoryaxon.firebase.lib.GreenRobotEventBus;
 import org.victoryaxon.firebase.login.events.LoginEvent;
 
 /**
- * Created by ykro.
+ * Created by VictorYaxon.
  */
 public class LoginRepositoryImpl implements LoginRepository {
     private FirebaseHelper helper;
