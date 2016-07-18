@@ -1,9 +1,17 @@
 package org.victoryaxon.firebase.login.ui;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.NotificationCompat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -49,12 +57,13 @@ public class LoginActivity extends AppCompatActivity
 
     private CallbackManager callbackManager;
     private LoginPresenter loginPresenter;
-
+    MediaPlayer mp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
+
 
         loginPresenter = new LoginPresenterImpl(this);
         loginPresenter.onCreate();
@@ -114,6 +123,16 @@ public class LoginActivity extends AppCompatActivity
     }
 
     @Override
+    public void onFinish() {
+        onFinalized();
+    }
+
+    @Override
+    public void error() {
+        onFail();
+    }
+
+    @Override
     public void disableInputs() {
         setInputs(false);
     }
@@ -154,5 +173,43 @@ public class LoginActivity extends AppCompatActivity
         btnSignUp.setEnabled(enabled);
         inputEmail.setEnabled(enabled);
         inputPassword.setEnabled(enabled);
+    }
+    public void onFinalized() {
+        final NotificationCompat.Builder notificacion = new NotificationCompat.Builder(this);
+        notificacion.setSmallIcon(R.mipmap.ic_book);
+        notificacion.setTicker("Ha ingresado exitosamente");
+        notificacion.setWhen(System.currentTimeMillis());
+        notificacion.setContentTitle("Bienvenido al sistema");
+        notificacion.setContentText("Gracias por usar nuestros servicios");
+        mp = MediaPlayer.create(this,R.raw.echo);
+        PendingIntent myPendingIntent;
+        Intent myIntent = new Intent();
+        Context myContext = getApplicationContext();
+        myPendingIntent = PendingIntent.getActivity(myContext,0 , myIntent, 0);
+        notificacion.setContentIntent(myPendingIntent);
+
+        Notification n = notificacion.build();
+        NotificationManager nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+        nm.notify(1,notificacion.build());
+        mp.start();
+    }
+    public void onFail() {
+        final NotificationCompat.Builder notificacion = new NotificationCompat.Builder(this);
+        notificacion.setSmallIcon(R.mipmap.ic_book);
+        notificacion.setTicker("Error");
+        notificacion.setWhen(System.currentTimeMillis());
+        notificacion.setContentTitle("Error al acceder sistema");
+        notificacion.setContentText("Compruebe sus datos");
+        mp = MediaPlayer.create(this,R.raw.error);
+        PendingIntent myPendingIntent;
+        Intent myIntent = new Intent();
+        Context myContext = getApplicationContext();
+        myPendingIntent = PendingIntent.getActivity(myContext,0 , myIntent, 0);
+        notificacion.setContentIntent(myPendingIntent);
+
+        Notification n = notificacion.build();
+        NotificationManager nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+        nm.notify(1,notificacion.build());
+        mp.start();
     }
 }

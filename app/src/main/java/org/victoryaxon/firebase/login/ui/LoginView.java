@@ -8,6 +8,8 @@ public interface LoginView {
     void disableInputs();
     void showProgress();
     void hideProgress();
+    void onFinish();
+    void error();
 
     void handleSignUp();
     void handleSignIn();

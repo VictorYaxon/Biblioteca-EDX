@@ -85,6 +85,7 @@ public class LoginPresenterImpl implements LoginPresenter {
     private void onSignInSuccess() {
         if (loginView != null) {
             loginView.navigateToMainScreen();
+            loginView.onFinish();
         }
     }
 
@@ -99,6 +100,7 @@ public class LoginPresenterImpl implements LoginPresenter {
             loginView.hideProgress();
             loginView.enableInputs();
             loginView.loginError(error);
+            loginView.error();
         }
     }
 
@@ -107,6 +109,7 @@ public class LoginPresenterImpl implements LoginPresenter {
             loginView.hideProgress();
             loginView.enableInputs();
             loginView.newUserError(error);
+            loginView.error();
         }
     }
 
